@@ -1,0 +1,18 @@
+name: Model Validate and Build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  validate-and-build:
+    uses: CBIIT/bento-workflows/.github/workflows/model-test-and-deploy.yml@v1.1.4.2
+    with:
+      model_files: |
+        cda-model.yml cda-model-props.yml
+      model_prefix: cda-model
+      event_name: ${{ github.event_name }}
