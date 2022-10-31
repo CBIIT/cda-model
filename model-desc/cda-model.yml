@@ -1,0 +1,126 @@
+Handle: CDA
+Nodes:
+  Subject:
+    Props:
+      - id
+      - identifier
+      - identifier.system
+      - identifier.value
+      - species
+      - sex
+      - race
+      - ethnicity
+      - days_to_birth
+      - subject_associated_project
+      - vital_status
+      - days_to_death
+      - cause_of_death
+  ResearchSubject:
+    Props:
+      - id
+      - identifier
+      - identifier.system
+      - identifier.value
+      - member_of_research_project
+      - primary_diagnosis_condition
+      - primary_diagnosis_site
+  Diagnosis:
+    Props:
+      - id
+      - identifier
+      - identifier.system
+      - identifier.value
+      - primary_diagnosis
+      - age_at_diagnosis
+      - morphology
+      - stage
+      - grade
+      - method_of_diagnosis
+  Treatment:
+    Props:
+      - id
+      - identifier
+      - identifier.system
+      - identifier.value
+      - treatment_type
+      - treatment_outcome
+      - days_to_treatment_start
+      - days_to_treatment_end
+      - therapeutic_agent
+      - treatment_anatomic_site
+      - treatment_effect
+      - treatment_end_reason
+      - number_of_cycles
+  Specimen:
+    Props:
+      - id
+      - identifier
+      - identifier.system
+      - identifier.value
+      - associated_project
+      - age_at_collection
+      - primary_disease_type
+      - anatomical_site
+      - source_material_type
+      - specimen_type
+      - derived_from_specimen
+      - derived_from_subject
+  Files:
+    Props:
+      - id
+      - identifier
+      - identifier.system
+      - identifier.value
+      - label
+      - data_category
+      - data_type
+      - file_format
+      - associated_project
+      - drs_uri
+      - byte_size
+      - checksum
+      - data_modality
+      - imaging_modality
+      - dbgap_accession_number
+      - imaging_series
+Relationships:
+  of_subject:
+    Props: null
+    Mul: many_to_one
+    Ends:
+      - Src: ResearchSubject
+        Dst: Subject
+      - Src: File
+        Dst: Subject
+  of_researchsubject:
+    Props: null
+    Mul: many_to_one
+    Ends:
+      - Src: Diagnosis
+        Dst: ResearchSubject
+      - Src: Specimen
+        Dst: ResearchSubject
+      - Src: File
+        Dst: ResearchSubject
+  of_diagnosis:
+    Props: null
+    Mul: many_to_one
+    Ends:
+      - Src: Treatment
+        Dst: Diagnosis
+  of_specimen:
+    Props: null
+    Mul: many_to_many
+    Ends:
+      - Src: File
+        Dst: Specimen
+  of_file:
+    Props: null
+    Mul: many_to_many
+    Ends:
+      - Src: Subject
+        Dst: File
+      - Src: ResearchSubject
+        Dst: File
+      - Src: Specimen
+        Dst: File

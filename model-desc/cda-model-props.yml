@@ -1,0 +1,295 @@
+PropDefinitions:
+  # Subject
+  id:
+    Desc: 
+    Type: string
+    Req: true
+  identifier:
+    Desc: 
+    Type: string
+    Req: true
+  identifier.system:
+    Desc: 
+    Type: string
+    Req: true
+  identifier.value:
+    Desc: 
+    Type: string
+    Req: true
+  species:
+    Desc: 
+    Type: string
+    Req: true
+  sex:
+    Desc: 
+    Type: string
+    Req: true
+  race:
+    Desc: 
+    Type: string
+    Req: true
+  ethnicity:
+    Desc: 
+    Type: string
+    Req: true
+  days_to_birth:
+    Desc: 
+    Type: integer
+    Req: true
+  subject_associated_project:
+    Desc: 
+    Type: string
+    Req: true
+  vital_status:
+    Desc: 
+    Type: string
+    Req: true
+  days_to_death:
+    Desc: 
+    Type: integer
+    Req: true
+  cause_of_death:
+    Desc: 
+    Type: string
+    Req: true
+
+   # ResearchSubject
+   id:
+    Desc: 
+    Type: string
+    Req: true
+   identifier:
+    Desc: 
+    Type: string
+    Req: true
+   identifier.system:
+    Desc: 
+    Type: string
+    Req: true
+   identifier.value:
+    Desc: 
+    Type: string
+    Req: true
+   member_of_research_project:
+    Desc: 
+    Type: string
+    Req: true
+   primary_diagnosis_condition:
+    Desc: 
+    Type: string
+    Req: true
+   primary_diagnosis_site:
+    Desc: 
+    Type: string
+    Req: true
+  
+   # Diagnosis
+   id:
+    Desc: 
+    Type: string
+    Req: true
+   identifier:
+    Desc: 
+    Type: string
+    Req: true
+   identifier.system:
+    Desc: 
+    Type: string
+    Req: true
+   identifier.value:
+    Desc: 
+    Type: string
+    Req: true
+   primary_diagnosis:
+    Desc: 
+    Type: string
+    Req: true
+   age_at_diagnosis:
+    Desc: 
+    Type: integer
+    Req: true
+   morphology:
+    Desc: 
+    Type: string
+    Req: true
+   stage:
+    Desc: 
+    Type: string
+    Req: true
+   grade:
+    Desc: 
+    Type: string
+    Req: true
+   method_of_diagnosis:
+    Desc: 
+    Type: string
+    Req: true
+
+   # Treatment
+   id:
+    Desc: 
+    Type: string
+    Req: true
+   identifier:
+    Desc: 
+    Type: string
+    Req: true
+   identifier.system:
+    Desc:
+    Type: string
+    Req: true
+   identifier.value:
+    Desc:
+    Type: string
+    Req: true
+   treatment_type:
+    Desc:
+    Type: string
+    Req: true
+   treatment_outcome:
+    Desc:
+    Type: string
+    Req: true
+   days_to_treatment_start:
+    Desc:
+    Type: integer
+    Req: true
+   days_to_treatment_end:
+    Desc:
+    Type: integer
+    Req: true
+   therapeutic_agent:
+    Desc:
+    Type: string
+    Req: true
+   treatment_anatomic_site:
+    Desc:
+    Type: string
+    Req: true
+   treatment_effect:
+    Desc:
+    Type: string
+    Req: true
+   treatment_end_reason:
+    Desc:
+    Type: string
+    Req: true
+   number_of_cycles:
+    Desc:
+    Type: integer
+    Req: true
+   # Specimen
+   id:
+    Desc:
+    Type: string
+    Req: true
+   identifier:
+    Desc:
+    Type: string
+    Req: true
+   identifier.system:
+    Desc:
+    Type: string
+    Req: true
+   identifier.value:
+    Desc:
+    Type: string
+    Req: true
+   associated_project:
+    Desc:
+    Type: string
+    Req: true
+   age_at_collection:
+    Desc:
+    Type: integer
+    Req: true
+   primary_disease_type:
+    Desc:
+    Type: string
+    Req: true
+   anatomical_site:
+    Desc:
+    Type: string
+    Req: true
+   source_material_type:
+    Desc:
+    Type: string
+    Req: true
+   specimen_type:
+    Desc:
+    Type: string
+    Req: true
+   derived_from_specimen:
+    Desc:
+    Type: string
+    Req: true
+   derived_from_subject:
+    Desc:
+    Type: string
+    Req: true
+   # File
+   id:
+    Desc:
+    Type: string
+    Req: true
+   identifier:
+    Desc:
+    Type: string
+    Req: true
+   identifier.system:
+    Desc:
+    Type: string
+    Req: true
+   identifier.value:
+    Desc:
+    Type: string
+    Req: true
+   label:
+    Desc:
+    Type: string
+    Req: true
+   data_category:
+    Desc:
+    Type: string
+    Req: true
+   data_type:
+    Desc:
+    Type: string
+    Req: true
+   file_format:
+    Desc:
+    Type: string
+    Req: true
+   associated_project:
+    Desc:
+    Type: string
+    Req: true
+   drs_uri:
+    Desc:
+    Type: string
+    Req: true
+   byte_size:
+    Desc:
+    Type: integer
+    Req: true
+   checksum:
+    Desc:
+    Type:
+      pattern: "^phs[0-9]+([.]v[0-9]+)*$"
+    Req: true
+   data_modality:
+    Desc:
+    Type: string
+    Req: true
+   imaging_modality:
+    Desc:
+    Type: string
+    Req: true
+   dbgap_accession_number:
+    Desc:
+    Type: string
+    Req: true
+   imaging_series:
+    Desc:
+    Type: string
+    Req: true
