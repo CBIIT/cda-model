@@ -1,295 +1,295 @@
 PropDefinitions:
   # Subject
   id:
-    Desc: 
+    Desc: The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     Type: string
     Req: true
   identifier:
-    Desc: 
-    Type: string
+    Desc: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems (i.e. a 'logical' identifier). Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier - or a URI expressed as a string to an existing entity.
+    Type: record
     Req: true
   identifier.system:
-    Desc: 
+    Desc: The system or namespace that defines the identifier.
     Type: string
     Req: true
   identifier.value:
-    Desc: 
+    Desc: The value of the identifier, as defined by the system.
     Type: string
     Req: true
   species:
-    Desc: 
+    Desc: The taxonomic group (e.g. species) of the patient. For MVP, since taxonomy vocabulary is consistent between GDC and PDC, using text. Ultimately, this will be a term returned by the vocabulary service.
     Type: string
     Req: true
   sex:
-    Desc: 
+    Desc: The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics.
     Type: string
     Req: true
   race:
-    Desc: 
+    Desc: An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
     Type: string
     Req: true
   ethnicity:
-    Desc: 
+    Desc: An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
     Type: string
     Req: true
   days_to_birth:
-    Desc: 
+    Desc: Number of days between the date used for index and the date from a person's date of birth represented as a calculated negative number of days.
     Type: integer
     Req: true
   subject_associated_project:
-    Desc: 
+    Desc: The list of Projects associated with the Subject.
     Type: string
     Req: true
   vital_status:
-    Desc: 
+    Desc: Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.
     Type: string
     Req: true
   days_to_death:
-    Desc: 
+    Desc: Number of days between the date used for index and the date from a person's date of death represented as a calculated number of days.
     Type: integer
     Req: true
   cause_of_death:
-    Desc: 
+    Desc: Coded value indicating the circumstance or condition that results in the death of the subject.
     Type: string
     Req: true
 
    # ResearchSubject
    id:
-    Desc: 
+    Desc: The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system. For CDA, this is case_id.
     Type: string
     Req: true
    identifier:
-    Desc: 
-    Type: string
+    Desc: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems (i.e. a 'logical' identifier). Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier - or a URI expressed as a string to an existing entity.
+    Type: record
     Req: true
    identifier.system:
-    Desc: 
+    Desc: The system or namespace that defines the identifier.
     Type: string
     Req: true
    identifier.value:
-    Desc: 
+    Desc: The value of the identifier, as defined by the system.
     Type: string
     Req: true
    member_of_research_project:
-    Desc: 
+    Desc: A reference to the Study(s) of which this ResearchSubject is a member.
     Type: string
     Req: true
    primary_diagnosis_condition:
-    Desc: 
+    Desc: The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This attribute represents the disease that qualified the subject for inclusion on the ResearchProject.
     Type: string
     Req: true
    primary_diagnosis_site:
-    Desc: 
+    Desc: The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories. This attribute represents the primary site of disease that qualified the subject for inclusion on the ResearchProject.
     Type: string
     Req: true
   
    # Diagnosis
    id:
-    Desc: 
+    Desc: The 'logical' identifier of the entity in the repository, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     Type: string
     Req: true
    identifier:
-    Desc: 
-    Type: string
+    Desc: A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems (i.e. a 'logical' identifier).
+    Type: record
     Req: true
    identifier.system:
-    Desc: 
+    Desc: The system or namespace that defines the identifier.
     Type: string
     Req: true
    identifier.value:
-    Desc: 
+    Desc: The value of the identifier, as defined by the system.
     Type: string
     Req: true
    primary_diagnosis:
-    Desc: 
+    Desc: The diagnosis instance that qualified a subject for inclusion on a ResearchProject.
     Type: string
     Req: true
    age_at_diagnosis:
-    Desc: 
+    Desc: The age in days of the individual at the time of diagnosis.
     Type: integer
     Req: true
    morphology:
-    Desc: 
+    Desc: Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.
     Type: string
     Req: true
    stage:
-    Desc: 
+    Desc: The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.
     Type: string
     Req: true
    grade:
-    Desc: 
+    Desc: The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.
     Type: string
     Req: true
    method_of_diagnosis:
-    Desc: 
+    Desc: The method used to confirm the subjects malignant diagnosis.
     Type: string
     Req: true
 
    # Treatment
    id:
-    Desc: 
+    Desc: The 'logical' identifier of the entity in the repository, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     Type: string
     Req: true
    identifier:
-    Desc: 
-    Type: string
+    Desc: A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems (i.e. a 'logical' identifier).
+    Type: record
     Req: true
    identifier.system:
-    Desc:
+    Desc: The system or namespace that defines the identifier.
     Type: string
     Req: true
    identifier.value:
-    Desc:
+    Desc: The value of the identifier, as defined by the system.
     Type: string
     Req: true
    treatment_type:
-    Desc:
+    Desc: The treatment type including medication/therapeutics or other procedures.
     Type: string
     Req: true
    treatment_outcome:
-    Desc:
+    Desc: The final outcome of the treatment.
     Type: string
     Req: true
    days_to_treatment_start:
-    Desc:
+    Desc: The timepoint at which the treatment started.
     Type: integer
     Req: true
    days_to_treatment_end:
-    Desc:
+    Desc: The timepoint at which the treatment ended.
     Type: integer
     Req: true
    therapeutic_agent:
-    Desc:
+    Desc: One or more therapeutic agents as part of this treatment.
     Type: string
     Req: true
    treatment_anatomic_site:
-    Desc:
+    Desc: The anatomical site that the treatment targets.
     Type: string
     Req: true
    treatment_effect:
-    Desc:
+    Desc: The effect of a treatment on the diagnosis or tumor.
     Type: string
     Req: true
    treatment_end_reason:
-    Desc:
+    Desc: The reason the treatment ended.
     Type: string
     Req: true
    number_of_cycles:
-    Desc:
+    Desc: The number of treatment cycles the subject received.
     Type: integer
     Req: true
+   
    # Specimen
    id:
-    Desc:
+    Desc: The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     Type: string
     Req: true
    identifier:
-    Desc:
-    Type: string
+    Desc: A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems (i.e. a 'logical' identifier).
+    Type: record
     Req: true
    identifier.system:
-    Desc:
+    Desc: The system or namespace that defines the identifier.
     Type: string
     Req: true
    identifier.value:
-    Desc:
+    Desc: The value of the identifier, as defined by the system.
     Type: string
     Req: true
    associated_project:
-    Desc:
+    Desc: The Project associated with the specimen.
     Type: string
     Req: true
-   age_at_collection:
-    Desc:
+   age_at_collection: # schema overview says age_at_collection, json says days_to_collection?
+    Desc: ~
     Type: integer
     Req: true
    primary_disease_type:
-    Desc:
+    Desc: The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This attribute represents the disease that qualified the subject for inclusion on the ResearchProject.
     Type: string
     Req: true
    anatomical_site:
-    Desc:
+    Desc: Per GDC Dictionary, the text term that represents the name of the primary disease site of the submitted tumor sample; recommend dropping tumor; biospecimen_anatomic_site.
     Type: string
     Req: true
    source_material_type:
-    Desc:
+    Desc: The general kind of material from which the specimen was derived, indicating the physical nature of the source material.
     Type: string
     Req: true
    specimen_type:
-    Desc:
+    Desc: The high-level type of the specimen, based on its how it has been derived from the original extracted sample.
     Type: string
     Req: true
    derived_from_specimen:
-    Desc:
+    Desc: A source/parent specimen from which this one was directly derived.
     Type: string
     Req: true
    derived_from_subject:
-    Desc:
+    Desc: The Patient/ResearchSubject, or Biologically Derived Materal (e.g. a cell line, tissue culture, organoid) from which the specimen was directly or indirectly derived.
     Type: string
     Req: true
+   
    # File
    id:
-    Desc:
+    Desc: The 'logical' identifier of the entity in the repository, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     Type: string
     Req: true
    identifier:
-    Desc:
-    Type: string
+    Desc: A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems (i.e. a 'logical' identifier).
+    Type: record
     Req: true
    identifier.system:
-    Desc:
+    Desc: The system or namespace that defines the identifier.
     Type: string
     Req: true
    identifier.value:
-    Desc:
+    Desc: The value of the identifier, as defined by the system.
     Type: string
     Req: true
    label:
-    Desc:
+    Desc: Short name or abbreviation for dataset. Maps to rdfs:label.
     Type: string
     Req: true
    data_category:
-    Desc:
+    Desc: Broad categorization of the contents of the data file.
     Type: string
     Req: true
    data_type:
-    Desc:
+    Desc: Specific content type of the data file.
     Type: string
     Req: true
    file_format:
-    Desc:
+    Desc: Format of the data files.
     Type: string
     Req: true
    associated_project:
-    Desc:
+    Desc: A reference to the Project(s) of which this ResearchSubject is a member. The associated_project may be embedded using the $ref definition or may be a reference to the id for the Project - or a URI expressed as a string to an existing entity.
     Type: string
     Req: true
    drs_uri:
-    Desc:
+    Desc: A string of characters used to identify a resource on the Data Repo Service(DRS).
     Type: string
     Req: true
    byte_size:
-    Desc:
+    Desc: Size of the file in bytes. Maps to dcat:byteSize.
     Type: integer
     Req: true
    checksum:
-    Desc:
-    Type:
-      pattern: "^phs[0-9]+([.]v[0-9]+)*$"
+    Desc: A digit representing the sum of the correct digits in a piece of stored or transmitted digital data, against which later comparisons can be made to detect errors in the data.
+    Type: string
     Req: true
    data_modality:
-    Desc:
+    Desc: Data modality describes the biological nature of the information gathered as the result of an Activity, independent of the technology or methods used to produce the information.
     Type: string
     Req: true
    imaging_modality:
-    Desc:
-    Type: string
+    Desc: An imaging modality describes the imaging equipment and/or method used to acquire certain structural or functional information about the body. These include but are not limited to computed tomography (CT) and magnetic resonance imaging (MRI). Taken from the DICOM standard.
     Req: true
    dbgap_accession_number:
-    Desc:
+    Desc: The dbgap accession number for the project.
     Type: string
     Req: true
    imaging_series:
-    Desc:
+    Desc: The 'logical' identifier of the series or grouping of imaging files in the system of record which the file is a part of.
     Type: string
     Req: true
