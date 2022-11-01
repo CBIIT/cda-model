@@ -57,7 +57,7 @@ Nodes:
       - identifier
       - identifier.system
       - identifier.value
-      - associated_project
+      - Specimen.associated_project
       - age_at_collection
       - primary_disease_type
       - anatomical_site
@@ -65,7 +65,7 @@ Nodes:
       - specimen_type
       - derived_from_specimen
       - derived_from_subject
-  Files:
+  File:
     Props:
       - id
       - identifier
@@ -75,7 +75,7 @@ Nodes:
       - data_category
       - data_type
       - file_format
-      - associated_project
+      - File.associated_project
       - drs_uri
       - byte_size
       - checksum
