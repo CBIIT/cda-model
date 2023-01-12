@@ -3,7 +3,6 @@ Nodes:
   Subject:
     Props:
       - id
-      - identifier
       - identifier.system
       - identifier.value
       - species
@@ -18,7 +17,6 @@ Nodes:
   ResearchSubject:
     Props:
       - id
-      - identifier
       - identifier.system
       - identifier.value
       - member_of_research_project
@@ -27,7 +25,6 @@ Nodes:
   Diagnosis:
     Props:
       - id
-      - identifier
       - identifier.system
       - identifier.value
       - primary_diagnosis
@@ -39,7 +36,6 @@ Nodes:
   Treatment:
     Props:
       - id
-      - identifier
       - identifier.system
       - identifier.value
       - treatment_type
@@ -54,11 +50,10 @@ Nodes:
   Specimen:
     Props:
       - id
-      - identifier
       - identifier.system
       - identifier.value
-      - Specimen.associated_project
-      - age_at_collection
+      - associated_project
+      - days_to_collection
       - primary_disease_type
       - anatomical_site
       - source_material_type
@@ -68,14 +63,13 @@ Nodes:
   File:
     Props:
       - id
-      - identifier
       - identifier.system
       - identifier.value
       - label
       - data_category
       - data_type
       - file_format
-      - File.associated_project
+      - associated_project
       - drs_uri
       - byte_size
       - checksum
@@ -90,8 +84,6 @@ Relationships:
     Ends:
       - Src: ResearchSubject
         Dst: Subject
-      - Src: File
-        Dst: Subject
   of_researchsubject:
     Props: null
     Mul: many_to_one
@@ -100,20 +92,12 @@ Relationships:
         Dst: ResearchSubject
       - Src: Specimen
         Dst: ResearchSubject
-      - Src: File
-        Dst: ResearchSubject
   of_diagnosis:
     Props: null
     Mul: many_to_one
     Ends:
       - Src: Treatment
         Dst: Diagnosis
-  of_specimen:
-    Props: null
-    Mul: many_to_many
-    Ends:
-      - Src: File
-        Dst: Specimen
   of_file:
     Props: null
     Mul: many_to_many

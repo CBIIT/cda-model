@@ -4,10 +4,6 @@ PropDefinitions:
     Desc: The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     Type: string
     Req: true
-  identifier:
-    Desc: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems (i.e. a 'logical' identifier). Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier - or a URI expressed as a string to an existing entity.
-    Type: record
-    Req: true
   identifier.system:
     Desc: The system or namespace that defines the identifier.
     Type: string
@@ -134,11 +130,11 @@ PropDefinitions:
     Req: false
     
   # Specimen
-  Specimen.associated_project:
+  associated_project:
     Desc: The Project associated with the specimen.
     Type: string
     Req: false
-  age_at_collection: # schema overview says age_at_collection, json says days_to_collection?
+  days_to_collection:
     Desc: The number of days from the index date to either the date a sample was collected for a specific study or project, or the date a subject underwent a procedure (e.g. surgical resection) yielding a sample that was eventually used for research.
     Type: integer
     Req: false
@@ -184,7 +180,7 @@ PropDefinitions:
     Desc: Format of the data files.
     Type: string
     Req: false
-  File.associated_project:
+  associated_project:
     Desc: A reference to the Project(s) of which this ResearchSubject is a member. The associated_project may be embedded using the $ref definition or may be a reference to the id for the Project - or a URI expressed as a string to an existing entity.
     Type: string
     Req: false
