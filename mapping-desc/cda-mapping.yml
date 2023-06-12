@@ -1,0 +1,661 @@
+Source: CDA
+Models:
+  - CDS
+  - GDC
+  - PDC
+  - IDC
+Props:
+  diagnosis:
+    age_at_diagnosis:
+      CDS:
+        - age_at_diagnosis:
+            Parents: diagnosis
+      GDC:
+        - age_at_diagnosis:
+            Parents: files.cases.diagnoses
+      PDC:
+        - age_at_diagnosis:
+            Parents: files.cases.diagnoses
+    grade:
+      CDS:
+        - tumor_grade:
+            Parents: diagnosis
+      GDC:
+        - tumor_grade:
+            Parents: files.cases.diagnoses
+      PDC:
+        - tumor_grade:
+            Parents: files.cases.diagnoses
+    id:
+      CDS:
+        - diagnosis_id:
+            Parents: diagnosis
+      GDC:
+        - diagnosis_id:
+            Parents: files.cases.diagnoses
+      PDC:
+        - diagnosis_id:
+            Parents: files.cases.diagnoses
+    identifier.system:
+      GDC:
+        - GDC:
+            Constant: true
+      PDC:
+        - PDC:
+            Constant: true
+    identifier.value:
+      CDS:
+        - diagnosis_id:
+            Parents: diagnosis
+      GDC:
+        - diagnosis_id:
+            Parents: files.cases.diagnoses
+      PDC:
+        - diagnosis_id:
+            Parents: files.cases.diagnoses
+    method_of_diagnosis:
+      GDC:
+        - method_of_diagnosis:
+            Parents: files.cases.diagnoses
+      PDC:
+        - method_of_diagnosis:
+            Parents: files.cases.diagnoses
+    morphology:
+      CDS:
+        - morphology:
+            Parents: diagnosis
+      GDC:
+        - morphology:
+            Parents: files.cases.diagnoses
+      PDC:
+        - morphology:
+            Parents: files.cases.diagnoses
+    primary_diagnosis:
+      CDS:
+        - primary_diagnosis:
+            Parents: diagnosis
+      GDC:
+        - primary_diagnosis:
+            Parents: files.cases.diagnoses
+      PDC:
+        - primary_diagnosis:
+            Parents: files.cases.diagnoses
+    stage:
+      CDS:
+        - tumor_stage_clinical_m:
+            Parents: diagnosis
+        - tumor_stage_clinical_n:
+            Parents: diagnosis
+        - tumor_stage_clinical_t:
+            Parents: diagnosis
+      GDC:
+        - tumor_stage:
+            Parents: files.cases.diagnoses
+      PDC:
+        - tumor_stage:
+            Parents: files.cases.diagnoses
+  file:
+    associated_project:
+      CDS:
+        - program_name:
+            Parents: program
+        - study_name:
+            Parents: study
+      GDC:
+        - project_id:
+            Parents: files.cases.project
+      IDC:
+        - collection_id:
+            Parents: files
+      PDC:
+        - project_submitter_id:
+            Parents: files
+    byte_size:
+      CDS:
+        - file_size:
+            Parents: file
+      GDC:
+        - file_size:
+            Parents: files
+      PDC:
+        - file_size:
+            Parents: files
+    checksum:
+      CDS:
+        - md5sum:
+            Parents: file
+      GDC:
+        - md5sum:
+            Parents: files
+      PDC:
+        - md5sum:
+            Parents: files
+    data_category:
+      GDC:
+        - data_category:
+            Parents: files
+      IDC:
+        - Imaging:
+            Constant: true
+      PDC:
+        - data_category:
+            Parents: files
+    data_modality:
+      CDS:
+        - study_data_types:
+            Parents: study
+      GDC:
+        - Genomic:
+            Constant: true
+      IDC:
+        - Imaging:
+            Constant: true
+      PDC:
+        - Proteomic:
+            Constant: true
+    data_type:
+      GDC:
+        - data_type:
+            Parents: files
+      PDC:
+        - file_type:
+            Parents: files
+    dbgap_accession_number:
+      CDS:
+        - phs_accession:
+            Parents: study
+      GDC:
+        - dbgap_accession_number:
+            Parents: files.cases.project
+      PDC:
+        - dbgap_control_number:
+            Parents: files
+    drs_uri:
+      CDS:
+        - file_id:
+            Parents: file
+      GDC:
+        - file_id:
+            Parents: files
+      IDC:
+        - crdc_instance_uuid:
+            Parents: files
+      PDC:
+        - file_id:
+            Parents: files
+    file_format:
+      CDS:
+        - file_type:
+            Parents: file
+      GDC:
+        - data_format:
+            Parents: files
+      IDC:
+        - DICOM:
+            Constant: true
+      PDC:
+        - file_format:
+            Parents: files
+    id:
+      CDS:
+        - file_id:
+            Parents: file
+      GDC:
+        - file_id:
+            Parents: files
+      IDC:
+        - crdc_instance_uuid:
+            Parents: files
+      PDC:
+        - file_id:
+            Parents: files
+    identifier.system:
+      GDC:
+        - GDC:
+            Constant: true
+      IDC:
+        - IDC:
+            Constant: true
+      PDC:
+        - PDC:
+            Constant: true
+    identifier.value:
+      CDS:
+        - file_id:
+            Parents: file
+      GDC:
+        - file_id:
+            Parents: files
+      IDC:
+        - crdc_instance_uuid:
+            Parents: files
+      PDC:
+        - file_id:
+            Parents: files
+    imaging_modality:
+      IDC:
+        - Modality:
+            Parents: files
+    imaging_series:
+      IDC:
+        - crdc_series_uuid:
+            Parents: files
+    label:
+      CDS:
+        - file_name:
+            Parents: file
+      GDC:
+        - file_name:
+            Parents: files
+      IDC:
+        - gcs_url:
+            Parents: files
+      PDC:
+        - file_name:
+            Parents: files
+  researchsubject:
+    id:
+      GDC:
+        - case_id:
+            Parents: files.cases
+      IDC:
+        - PatientID:
+            Parents: files
+      PDC:
+        - case_id:
+            Parents: files.cases
+    identifier.system:
+      GDC:
+        - GDC:
+            Constant: true
+      IDC:
+        - IDC:
+            Constant: true
+      PDC:
+        - PDC:
+            Constant: true
+    identifier.value:
+      GDC:
+        - case_id:
+            Parents: files.cases
+      IDC:
+        - PatientID:
+            Parents: files
+      PDC:
+        - case_id:
+            Parents: files.cases
+    member_of_research_project:
+      GDC:
+        - project_id:
+            Parents: files.cases.project
+      IDC:
+        - collection_id:
+            Parents: files
+      PDC:
+        - project_submitter_id:
+            Parents: files.cases
+    primary_diagnosis_condition:
+      CDS:
+        - disease_type:
+            Parents: diagnosis
+      GDC:
+        - disease_type:
+            Parents: files.cases
+      PDC:
+        - disease_type:
+            Parents: files.cases
+    primary_diagnosis_site:
+      CDS:
+        - primary_site:
+            Parents: diagnosis
+      GDC:
+        - primary_site:
+            Parents: files.cases
+      IDC:
+        - tcia_tumorLocation:
+            Parents: files
+      PDC:
+        - primary_site:
+            Parents: files.cases
+  specimen:
+    anatomical_site:
+      CDS:
+        - sample_anatomic_site:
+            Parents: sample
+      GDC:
+        - biospecimen_anatomic_site:
+            Parents: files.cases.samples
+      PDC:
+        - biospecimen_anatomic_site:
+            Parents: files.cases.samples
+    associated_project:
+      GDC:
+        - project_id:
+            Parents: files.cases.project
+      PDC:
+        - project_submitter_id:
+            Parents: files.cases
+    days_to_collection:
+      CDS:
+        - sample_age_at_collection:
+            Parents: sample
+      GDC:
+        - days_to_sample_procurement:
+            Parents: files.cases.samples
+      PDC:
+        - days_to_sample_procurement:
+            Parents: files.cases.samples
+    derived_from_specimen:
+      CDS:
+        - derived_from_specimen:
+            Parents: sample
+      GDC:
+        - initial specimen:
+            Constant: true
+        - sample_id:
+            Parents: files.cases.samples
+        - portion_id:
+            Parents: files.cases.samples.portions
+        - portion_id:
+            Parents: files.cases.samples.portions
+        - analyte_id:
+            Parents: files.cases.samples.portions.analytes
+      PDC:
+        - initial specimen:
+            Constant: true
+        - sample_id:
+            Parents: files.cases.samples
+    derived_from_subject:
+      GDC:
+        - submitter_id:
+            Parents: files.cases
+      PDC:
+        - case_submitter_id:
+            Parents: files.cases
+    id:
+      CDS:
+        - sample_id:
+            Parents: sample
+      GDC:
+        - sample_id:
+            Parents: files.cases.samples
+        - portion_id:
+            Parents: files.cases.samples.portions
+        - slide_id:
+            Parents: files.cases.samples.portions.slides
+        - analyte_id:
+            Parents: files.cases.samples.portions.analytes
+        - aliquot_id:
+            Parents: files.cases.samples.portions.analytes.aliquots
+      PDC:
+        - sample_id:
+            Parents: files.cases.samples
+        - aliquot_id:
+            Parents: files.cases.samples.aliquots
+    identifier.system:
+      GDC:
+        - GDC:
+            Constant: true
+      PDC:
+        - PDC:
+            Constant: true
+    identifier.value:
+      CDS:
+        - sample_id:
+            Parents: sample
+      GDC:
+        - sample_id:
+            Parents: files.cases.samples
+        - portion_id:
+            Parents: files.cases.samples.portions
+        - slide_id:
+            Parents: files.cases.samples.portions.slides
+        - analyte_id:
+            Parents: files.cases.samples.portions.analytes
+        - aliquot_id:
+            Parents: files.cases.samples.portions.analytes.aliquots
+      PDC:
+        - sample_id:
+            Parents: files.cases.samples
+        - aliquot_id:
+            Parents: files.cases.samples.aliquots
+    primary_disease_type:
+      GDC:
+        - disease_type:
+            Parents: files.cases
+      PDC:
+        - disease_type:
+            Parents: files.cases
+    source_material_type:
+      GDC:
+        - sample_type:
+            Parents: files.cases.samples
+      PDC:
+        - sample_type:
+            Parents: files.cases.samples
+    specimen_type:
+      CDS:
+        - sample_type:
+            Parents: sample
+      GDC:
+        - sample:
+            Constant: true
+        - portion:
+            Constant: true
+        - slide:
+            Constant: true
+        - analyte:
+            Constant: true
+        - aliquot:
+            Constant: true
+      PDC:
+        - sample:
+            Constant: true
+        - aliquot:
+            Constant: true
+  subject:
+    cause_of_death:
+      GDC:
+        - cause_of_death:
+            Parents: files.cases.demographic
+      PDC:
+        - cause_of_death:
+            Parents: files.cases.demographics
+    days_to_birth:
+      GDC:
+        - days_to_birth:
+            Parents: files.cases.demographic
+      PDC:
+        - days_to_birth:
+            Parents: files.cases.demographics
+    days_to_death:
+      GDC:
+        - days_to_death:
+            Parents: files.cases.demographic
+      PDC:
+        - days_to_death:
+            Parents: files.cases.demographics
+    ethnicity:
+      CDS:
+        - ethnicity:
+            Parents: participant
+      GDC:
+        - ethnicity:
+            Parents: files.cases.demographic
+      PDC:
+        - ethnicity:
+            Parents: files.cases.demographics
+    id:
+      CDS:
+        - participant_id:
+            Parents: participant
+      GDC:
+        - submitter_id:
+            Parents: files.cases
+      IDC:
+        - PatientID:
+            Parents: files
+      PDC:
+        - case_submitter_id:
+            Parents: files.cases
+    identifier.system:
+      GDC:
+        - GDC:
+            Constant: true
+      IDC:
+        - IDC:
+            Constant: true
+      PDC:
+        - PDC:
+            Constant: true
+    identifier.value:
+      CDS:
+        - participant_id:
+            Parents: participant
+      GDC:
+        - submitter_id:
+            Parents: files.cases
+      IDC:
+        - PatientID:
+            Parents: files
+      PDC:
+        - case_submitter_id:
+            Parents: files.cases
+    race:
+      CDS:
+        - race:
+            Parents: participant
+      GDC:
+        - race:
+            Parents: files.cases.demographic
+      PDC:
+        - race:
+            Parents: files.cases.demographics
+    sex:
+      CDS:
+        - gender:
+            Parents: participant
+      GDC:
+        - gender:
+            Parents: files.cases.demographic
+      PDC:
+        - gender:
+            Parents: files.cases.demographics
+    species:
+      CDS:
+        - organism_species:
+            Parents: study
+      GDC:
+        - Homo sapiens:
+            Constant: true
+      IDC:
+        - tcia_species:
+            Parents: files
+      PDC:
+        - taxon:
+            Parents: files.cases
+    subject_associated_project:
+      GDC:
+        - project_id:
+            Parents: files.cases.project
+      IDC:
+        - collection_id:
+            Parents: files
+      PDC:
+        - project_submitter_id:
+            Parents: files.cases
+    vital_status:
+      CDS:
+        - vital_status:
+            Parents: participant
+      GDC:
+        - vital_status:
+            Parents: files.cases.demographic
+      PDC:
+        - vital_status:
+            Parents: cases.demographics
+  treatment:
+    days_to_treatment_end:
+      GDC:
+        - days_to_treatment_end:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - days_to_treatment_end:
+            Parents: files.cases.diagnoses.treatments
+    days_to_treatment_start:
+      GDC:
+        - days_to_treatment_start:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - days_to_treatment_start:
+            Parents: files.cases.diagnoses.treatments
+    id:
+      GDC:
+        - method_of_diagnosis:
+            Parents: files.cases.diagnoses
+      PDC:
+      - treatment_id:
+          Parents: files.cases.diagnoses.treatments
+    identifier.system:
+      GDC:
+        - GDC:
+            Constant: true
+      PDC:
+        - PDC:
+            Constant: true
+    identifier.value:
+      GDC:
+        - treatment_id:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - treatment_id:
+            Parents: files.cases.diagnoses.treatments
+    number_of_cycles:
+      GDC:
+        - number_of_cycles:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - number_of_cycles:
+            Parents: files.cases.diagnoses.treatments
+    therapeutic_agent:
+      GDC:
+        - therapeutic_agents:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - therapeutic_agents:
+            Parents: files.cases.diagnoses.treatments
+    treatment_anatomic_site:
+      GDC:
+        - treatment_anatomic_site:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - treatment_anatomic_site:
+            Parents: files.cases.diagnoses.treatments
+    treatment_effect:
+      GDC:
+        - treatment_effect:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - treatment_effect:
+            Parents: files.cases.diagnoses.treatments
+    treatment_end_reason:
+      GDC:
+        - reason_treatment_ended:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - reason_treatment_ended:
+            Parents: files.cases.diagnoses.treatments
+    treatment_outcome:
+      GDC:
+        - treatment_outcome:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - treatment_outcome:
+            Parents: files.cases.diagnoses.treatments
+    treatment_type:
+      GDC:
+        - treatment_type:
+            Parents: files.cases.diagnoses.treatments
+      PDC:
+        - treatment_type:
+            Parents: files.cases.diagnoses.treatments
